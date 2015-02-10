@@ -1,0 +1,11 @@
+U   SD/client/doc/i18n.xls
+U   SD/client/src/com/client/CacheDao.java
+U   SD/client/src/com/client/shared/i18n/data_en.properties
+U   SD/client/src/com/client/shared/i18n/data_zh_CN.properties
+U   SD/client/src/com/client/shared/i18n/data_zh_TW.properties
+U   SD/client/src/com/client/shared/i18n/gui_en.properties
+U   SD/client/src/com/client/shared/i18n/gui_zh_CN.properties
+U   SD/client/src/com/client/shared/i18n/gui_zh_TW.properties
+U   SD/client/src/com/client/shared/i18n/msg_en.properties
+U   SD/client/src/com/client/shared/i18n/msg_zh_CN.properties
+U   SD/client/src/com/client/shared/i18n/msg_zh_TW.properties

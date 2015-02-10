@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<context:component-scan base-package="org.yfr" />
+
+	<bean id="dataSource" class="org.sqlite.SQLiteDataSource">
+		<property name="url" value="jdbc:sqlite:db\LogDetail.db" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	<bean id="codeParam" class="org.yfr.vo.CodeParam">
+		<constructor-arg index="0">
+			<list>
+				<value>Pao-Li_Yu</value>
+				<value>James_Tsao</value>
+				<value>Jackie_Cheng</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<list>
+				<value>AA</value>
+				<value>CLIENT</value>
+				<value>ESM</value>
+				<value>FAKETWSE</value>
+				<value>HUB</value>
+				<value>MGX</value>
+				<value>OM</value>
+				<value>OMS</value>
+				<value>SAR</value>
+				<value>QD</value>
+				<value>RC</value>
+				<value>SAFEVC</value>
+				<value>TICKGW</value>
+				<value>SAFE</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg index="2" value="[V][Module_Name (ex. oms / sar / mgx / ...)][Spec_Name or Bug_Id][Note]" />
+		<constructor-arg index="3" value="[X][Note]" />
+	</bean>
+
+	<bean id="sqlParam" class="org.yfr.vo.SqlParam">
+		<constructor-arg index="0">
+			<list>
+				<value>AA</value>
+				<value>ESM</value>
+				<value>MGX</value>
+				<value>OM</value>
+				<value>OMS</value>
+				<value>SAR</value>
+				<value>QD</value>
+				<value>RC</value>
+				<value>TICKGW</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<list>
+				<value>gtd_aa</value>
+				<value>gtd</value>
+				<value>gtd_mgx</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg index="2" value="[Module_Name (ex. oms / sar / mgx / ...)][DB_User (ex. gtd_aa / gtd / gtd_mgx)][Table_Name1 / Table_Name2 / ...] (next line)" />
+		<constructor-arg index="3" value="Note" />
+		<constructor-arg index="4" value="Content" />
+		<constructor-arg index="5">
+			<list>
+				<!-- <value>Evadne_Tu@syscom.com.tw</value> -->
+				<!-- <value>ChenHsiang_Chou@syscom.com.tw</value> -->
+				<!-- <value>Oscar_Shih@syscom.com.tw</value> -->
+				<!-- <value>Wade_Wu@syscom.com.tw</value> -->
+				<!-- <value>Ben_Ho@syscom.com.tw</value> -->
+				<!-- <value>Jeff_Peng@syscom.com.tw</value> -->
+				<!-- <value>Beck_Wu@syscom.com.tw</value> -->
+				<!-- <value>Tommy_Yeh@syscom.com.tw</value> -->
+				<value>Vincent_Huang@syscom.com.tw</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg index="6">
+			<list>
+				<!-- <value>Jackie_Cheng@syscom.com.tw</value> -->
+				<value>Vincent_Huang@syscom.com.tw</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="buildParam" class="org.yfr.vo.BuildParam">
+		<constructor-arg index="0" value="[國票自營][換版通知][222,239測試機] " />
+		<constructor-arg index="1" value="Dear All :&lt;br&gt;&lt;br&gt;附件為此次換版的異動清單，請參閱&lt;br&gt;&lt;br&gt;Regrads,&lt;br&gt;syscom.v4.svn" />
+		<constructor-arg index="2">
+			<list>
+				<!-- <value>Evadne_Tu@syscom.com.tw</value> -->
+				<!-- <value>ChenHsiang_Chou@syscom.com.tw</value> -->
+				<!-- <value>Oscar_Shih@syscom.com.tw</value> -->
+				<!-- <value>Wade_Wu@syscom.com.tw</value> -->
+				<!-- <value>Ben_Ho@syscom.com.tw</value> -->
+				<!-- <value>Jeff_Peng@syscom.com.tw</value> -->
+				<!-- <value>Beck_Wu@syscom.com.tw</value> -->
+				<!-- <value>Tommy_Yeh@syscom.com.tw</value> -->
+				<value>Vincent_Huang@syscom.com.tw</value>
+				<!-- <value>James_Tsao@syscom.com.tw</value> -->
+				<!-- <value>Pao-Li_Yu@tc.syscom.com.tw</value> -->
+			</list>
+		</constructor-arg>
+		<constructor-arg index="3">
+			<list>
+				<!-- <value>Jackie_Cheng@syscom.com.tw</value> -->
+				<value>Vincent_Huang@syscom.com.tw</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="sendMailService" class="org.yfr.common.service.impl.SendMailServiceImpl">
+		<property name="mailProp">
+			<props>
+				<prop key="mail.smtp.host">smtp.gmail.com</prop>
+				<prop key="mail.smtp.socketFactory.port">465</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.port">465</prop>
+			</props>
+		</property>
+
+		<property name="accountName" value="syscom.v4.svn" />
+
+		<property name="password" value="syscom_143" />
+
+		<property name="fromAddress" value="syscom.v4.svn@gmail.com" />
+
+		<property name="subject" value="Test Subject " />
+
+		<property name="mailContent" value="Test Content" />
+
+		<property name="mailAddressList">
+			<list>
+				<value>Vincent_Huang@syscom.com.tw</value>
+			</list>
+		</property>
+
+		<property name="ccMailAddressList">
+			<list>
+				<value>Vincent_Huang@syscom.com.tw</value>
+			</list>
+		</property>
+
+		<property name="attachFileNameList">
+			<list>
+				<value>./TestAttachFile1.txt</value>
+				<value>./TestAttachFile2.txt</value>
+			</list>
+		</property>
+	</bean>
+</beans>  

@@ -1,0 +1,2 @@
+A   sql/initial_data/CTRL_OPTION.sql
+A   sql/initial_schema/CTRL_OPTION.sql
