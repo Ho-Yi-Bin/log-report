@@ -1,6 +1,6 @@
 For different repository use :
-1. change project name	
-2. change code-hook/projectPath.conf
-3. change sql-hook/projectPath.conf
-4. change output/codeReposPath.conf
-5. change output/sqlReposPath.conf
+step 1. change project name	
+step 2. change code-hook/projectPath.conf and sql-hook/projectPath.conf
+step 3. put code-hook/* and sql-hook/* to specific path
+step 4. change output/codeReposPath.conf and output/sqlReposPath.conf
+step 5. call code-full-exp.bat and sql-full-exp.bat if you need 
