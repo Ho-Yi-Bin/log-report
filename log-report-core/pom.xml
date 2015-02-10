@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.yfr</groupId>
 		<artifactId>log-report</artifactId>
-		<version>0.1</version>
+		<version>1.0</version>
 	</parent>
 	<artifactId>log-report-core</artifactId>
 	<name>log-report-core</name>
@@ -73,5 +73,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<version>0.1.1</version>
+	<version>1.0.0</version>
 </project>
