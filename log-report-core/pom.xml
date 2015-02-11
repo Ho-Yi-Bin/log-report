@@ -6,6 +6,7 @@
 		<version>1.0</version>
 	</parent>
 	<artifactId>log-report-core</artifactId>
+	<version>1.0.0</version>
 	<name>log-report-core</name>
 	<description>
 		This project integrate few older tools write by Jian-Min Huang .
@@ -73,5 +74,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<version>1.0.0</version>
 </project>
