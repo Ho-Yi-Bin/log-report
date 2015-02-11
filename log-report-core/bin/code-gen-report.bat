@@ -12,5 +12,5 @@ set /p endVersion=
 echo startVersion=%startVersion%, endVersion=%endVersion%
 echo Ready to generate report ...
 pause
-cmd /c run.bat CODE GEN_REPORT Code_Manual %startVersion% %endVersion%
+cmd /c run.bat CODE GEN_REPORT Manual %startVersion% %endVersion%
 pause
