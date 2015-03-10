@@ -5,11 +5,11 @@ rem %3 = User
 rem %4 = Property Name
 rem %5 = Action
 
-if %PROPNAME%=="svn:log" goto MODIFY
+if %4 == "svn:log" goto MODIFY
 goto CANNOT_DOIT
 
 :MODIFY
-if %ACTION%=="M" goto DOIT
+if %5 == "M" goto DOIT
 goto CANNOT_DOIT
 
 :DOIT
