@@ -13,6 +13,7 @@ import org.yfr.common.enu.ActionType;
 import org.yfr.common.enu.ProgramState;
 import org.yfr.common.service.BuildVersionService;
 import org.yfr.common.service.SendMailService;
+import org.yfr.constant.LogConstant;
 import org.yfr.entity.CodeLogDetailEntity;
 import org.yfr.entity.SqlLogDetailEntity;
 import org.yfr.manager.ApplicationContextManager;
@@ -130,6 +131,7 @@ public class LogReportMain {
 	 * </ol>
 	 */
 	public static void main(String[] args) {
+		/* get all needed bean from application context . */
 		CodeLogDetailService codeLogDetailService = ApplicationContextManager.INSTANCE.getBean("codeLogDetailService", CodeLogDetailService.class);
 		CodeExpSvnInfoService codeExpSvnInfoService = ApplicationContextManager.INSTANCE.getBean("codeExpSvnInfoService", CodeExpSvnInfoService.class);
 		CodeGenLogReportService codeGenLogReportService = ApplicationContextManager.INSTANCE.getBean("codeGenLogReportService", CodeGenLogReportService.class);
@@ -150,34 +152,36 @@ public class LogReportMain {
 		/* >>>>> code program action . <<<<< */
 		if (args[0].trim().equals(ActionType.CODE.toString())) {
 			if (args[1].trim().equals(ActionType.PRE.toString())) {
-				logger.info("code pre-commit.bat calls");
+				logger.info(LogConstant.CODE_PRE_COMMIT_BAT_CALL.toString());
 
 				ProgramState programState = codeLogDetailService.verify(args[2], args[3]);
-				if (!programState.equals(ProgramState.FORMAT_CORRECT) && !programState.equals(ProgramState.IGNORE_AUTHOR)) {
-					System.exit(1);
+				if (programState.equals(ProgramState.FORMAT_CORRECT) == false) {
+					if (programState.equals(ProgramState.IGNORE_AUTHOR) == false) {
+						System.exit(1);
+					}
 				}
 			} else if (args[1].trim().equals(ActionType.POST.toString())) {
-				logger.info("code post-commit.bat calls");
+				logger.info(LogConstant.CODE_POST_COMMIT_BAT_CALL.toString());
 
 				CodeLogDetailEntity entityForInsert = codeLogDetailService.combineEntity(args[2], args[3], args[4], args[5], args[6]);
 				codeLogDetailService.insert(entityForInsert);
 			} else if (args[1].trim().equals(ActionType.UPDATE.toString())) {
-				logger.info("code post-revprop-change.bat calls");
+				logger.info(LogConstant.CODE_POST_REVPROP_CHANGE_BAT_CALL.toString());
 
 				CodeLogDetailEntity entityForUpdate = codeLogDetailService.combineUpdateEntity(args[2], args[3]);
 				codeLogDetailService.update(entityForUpdate);
 			} else if (args[1].trim().equals(ActionType.GEN_REPORT.toString())) {
-				logger.info("code gen-report.bat calls");
+				logger.info(LogConstant.CODE_GEN_REPORT_BAT_CALL.toString());
 
 				codeGenLogReportService.genSimpleReport(args[2], args[3], args[4]);
 			} else if (args[1].trim().equals(ActionType.FULL_EXP.toString())) {
-				logger.info("code full-exp.bat calls");
+				logger.info(LogConstant.CODE_FULL_EXP_BAT_CALL.toString());
 
 				if (args[4].trim().equals("Y")) {
 					codeExpSvnInfoService.impTxt2DB(args[2].trim(), args[3].trim());
 				} else if (args[4].trim().equals("N")) {
 					Boolean expResult = codeExpSvnInfoService.expSvnInfo2Txt(args[2].trim(), args[3].trim());
-					if (expResult == Boolean.TRUE) {
+					if (expResult.booleanValue()) {
 						codeExpSvnInfoService.impTxt2DB(args[2].trim(), args[3].trim());
 					}
 				}
@@ -187,14 +191,16 @@ public class LogReportMain {
 		/* >>>>> sql program action . <<<<< */
 		if (args[0].trim().equals(ActionType.SQL.toString())) {
 			if (args[1].trim().equals(ActionType.PRE.toString())) {
-				logger.info("sql pre-commit.bat calls");
+				logger.info(LogConstant.SQL_PRE_COMMIT_BAT_CALL.toString());
 
 				ProgramState programState = sqlLogDetailService.verify(args[2], args[3]);
-				if (!programState.equals(ProgramState.FORMAT_CORRECT) && !programState.equals(ProgramState.SVN_ADMIN)) {
-					System.exit(1);
+				if (programState.equals(ProgramState.FORMAT_CORRECT) == false) {
+					if (programState.equals(ProgramState.SVN_ADMIN) == false) {
+						System.exit(1);
+					}
 				}
 			} else if (args[1].trim().equals(ActionType.POST.toString())) {
-				logger.info("sql post-commit.bat calls");
+				logger.info(LogConstant.SQL_POST_COMMIT_BAT_CALL.toString());
 
 				SqlLogDetailEntity entityForInsert = sqlLogDetailService.combineEntity(args[2], args[3], args[4], args[5], args[6]);
 				Boolean insertResult = sqlLogDetailService.insert(entityForInsert);
@@ -202,38 +208,38 @@ public class LogReportMain {
 					sqlLogDetailService.commitNotify(entityForInsert);
 				}
 			} else if (args[1].trim().equals(ActionType.UPDATE.toString())) {
-				logger.info("sql post-revprop-change.bat calls");
+				logger.info(LogConstant.SQL_POST_REVPROP_CHANGE_BAT_CALL.toString());
 
 				SqlLogDetailEntity entityForUpdate = sqlLogDetailService.combineUpdateEntity(args[2], args[3]);
 				sqlLogDetailService.update(entityForUpdate);
 			} else if (args[1].trim().equals(ActionType.GEN_REPORT.toString())) {
-				logger.info("sql gen-report.bat calls");
+				logger.info(LogConstant.SQL_GEN_REPORT_BAT_CALL.toString());
 
 				sqlGenLogReportService.genSimpleReport(args[2], args[3], args[4]);
 			} else if (args[1].trim().equals(ActionType.FULL_EXP.toString())) {
-				logger.info("sql full-exp.bat calls");
+				logger.info(LogConstant.SQL_FULL_EXP_BAT_CALL.toString());
 
 				if (args[4].trim().equals("Y")) {
 					sqlExpSvnInfoService.impTxt2DB(args[2].trim(), args[3].trim());
 				} else if (args[4].trim().equals("N")) {
 					Boolean expResult = sqlExpSvnInfoService.expSvnInfo2Txt(args[2].trim(), args[3].trim());
-					if (expResult == Boolean.TRUE) {
+					if (expResult.booleanValue()) {
 						sqlExpSvnInfoService.impTxt2DB(args[2].trim(), args[3].trim());
 					}
 				}
 			}
 		}
 
-		/* >>>>> build mode (call by jenkins) . <<<<< */
+		/* >>>>> build mode (call by manual or jenkins) . <<<<< */
 		if (args[0].trim().equals(ActionType.BUILD.toString())) {
-			logger.info("run.bat BUILD yyyy-MM-dd_HH-mm-ss Y");
+			logger.info(LogConstant.BUILD_MODE_CALL.toString());
 
 			String buildId = null;
 			try {
 				Date parse = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").parse(args[1].trim());
 				buildId = new SimpleDateFormat("yyyyMMdd_HHmm").format(parse);
 			} catch (ParseException ex) {
-				logger.error(ex.getMessage(), ex);
+				logger.fatal(ex.getMessage(), ex);
 				System.exit(1);
 			}
 
@@ -248,15 +254,15 @@ public class LogReportMain {
 
 				ProgramState updateCodeTagNameResult = buildVesrionService.updateCodeTagName(buildId);
 				ProgramState updateSqlTagNameResult = buildVesrionService.updateSqlTagName(buildId);
-				logger.info(updateCodeTagNameResult.toString());
-				logger.info(updateSqlTagNameResult.toString());
+				logger.debug(updateCodeTagNameResult.toString());
+				logger.debug(updateSqlTagNameResult.toString());
 			} else if (args[2].trim().equals("N")) {
 				if (codeGenLogReportService.genBuildReport(buildId).equals(Boolean.TRUE)) {
 					attachFileList.add("./output/report/Code_" + buildId + ".xls");
 				}
 
 				ProgramState updateCodeTagNameResult = buildVesrionService.updateCodeTagName(buildId);
-				logger.info(updateCodeTagNameResult.toString());
+				logger.debug(updateCodeTagNameResult.toString());
 			}
 
 			sendMailService.setSubject(buildParam.getSubject() + buildId);
