@@ -8,6 +8,7 @@
 	<description>log-report which contains core function and web ui</description>
 	<modules>
 		<module>log-report-core</module>
+		<module>log-report-ui</module>
 	</modules>
 
 	<properties>
