@@ -9,11 +9,11 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.yfr.common.enu.ActionType;
-import org.yfr.common.enu.ProgramState;
+import org.yfr.common.constant.ActionType;
+import org.yfr.common.constant.LogConstant;
+import org.yfr.common.constant.ProgramState;
 import org.yfr.common.service.BuildVersionService;
 import org.yfr.common.service.SendMailService;
-import org.yfr.constant.LogConstant;
 import org.yfr.entity.CodeLogDetailEntity;
 import org.yfr.entity.SqlLogDetailEntity;
 import org.yfr.manager.ApplicationContextManager;

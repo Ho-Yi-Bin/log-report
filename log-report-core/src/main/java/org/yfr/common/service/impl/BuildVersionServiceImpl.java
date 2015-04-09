@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
-import org.yfr.common.enu.ProgramState;
+import org.yfr.common.constant.ProgramState;
 import org.yfr.common.service.BuildVersionService;
 import org.yfr.repository.CodeLogDetailRepository;
 import org.yfr.repository.SqlLogDetailRepository;
@@ -38,7 +38,7 @@ public class BuildVersionServiceImpl implements BuildVersionService {
 		logger.debug("Code Youngest Revision Number : " + codeYoungestRev);
 
 		if (buildId == null) {
-			return ProgramState.BUILD_ID_EQUALS_NULL;
+			return ProgramState.BUILD_ID_IS_NULL;
 		}
 
 		if (codeMinNoTagRev == null || codeYoungestRev == null) {
@@ -61,7 +61,7 @@ public class BuildVersionServiceImpl implements BuildVersionService {
 		logger.debug("Sql Youngest Revision Number : " + sqlYoungestRev);
 
 		if (buildId == null) {
-			return ProgramState.BUILD_ID_EQUALS_NULL;
+			return ProgramState.BUILD_ID_IS_NULL;
 		}
 
 		if (sqlMinNoTagRev == null || sqlYoungestRev == null) {

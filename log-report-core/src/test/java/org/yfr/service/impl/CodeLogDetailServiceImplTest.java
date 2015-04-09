@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.yfr.common.enu.ProgramState;
+import org.yfr.common.constant.ProgramState;
 import org.yfr.service.CodeLogDetailService;
 
 @RunWith(SpringJUnit4ClassRunner.class)

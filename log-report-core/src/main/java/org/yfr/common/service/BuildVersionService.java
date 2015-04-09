@@ -1,7 +1,7 @@
 
 package org.yfr.common.service;
 
-import org.yfr.common.enu.ProgramState;
+import org.yfr.common.constant.ProgramState;
 
 /**
  * build version service interface .

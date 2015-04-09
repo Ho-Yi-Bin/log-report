@@ -1,7 +1,7 @@
 
 package org.yfr.service;
 
-import org.yfr.common.enu.ProgramState;
+import org.yfr.common.constant.ProgramState;
 import org.yfr.common.service.UnitTestService;
 import org.yfr.entity.SqlLogDetailEntity;
 

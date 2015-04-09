@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
-import org.yfr.common.enu.ProgramState;
+import org.yfr.common.constant.ProgramState;
 import org.yfr.common.service.SendMailService;
 import org.yfr.entity.SqlLogDetailEntity;
 import org.yfr.repository.SqlLogDetailRepository;

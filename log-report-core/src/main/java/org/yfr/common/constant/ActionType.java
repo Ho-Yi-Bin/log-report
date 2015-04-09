@@ -1,5 +1,5 @@
 
-package org.yfr.common.enu;
+package org.yfr.common.constant;
 
 /**
  * action type for main class .

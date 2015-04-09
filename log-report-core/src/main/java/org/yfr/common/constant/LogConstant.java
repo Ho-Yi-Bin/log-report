@@ -1,5 +1,5 @@
 
-package org.yfr.constant;
+package org.yfr.common.constant;
 
 /**
  * log constant .

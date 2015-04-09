@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.yfr.common.enu.ProgramState;
+import org.yfr.common.constant.ProgramState;
 import org.yfr.common.service.BuildVersionService;
 import org.yfr.entity.CodeLogDetailEntity;
 import org.yfr.entity.SqlLogDetailEntity;
@@ -40,7 +40,7 @@ public class BuildVersionServiceImplTest {
 			codeLogDetailEntity.setRevisionNumber(new Integer(i));
 			assertEquals(Boolean.TRUE, codeLogDetailRepository.insert(codeLogDetailEntity));
 		}
-		assertEquals(ProgramState.BUILD_ID_EQUALS_NULL, buildVersionService.updateCodeTagName(null));
+		assertEquals(ProgramState.BUILD_ID_IS_NULL, buildVersionService.updateCodeTagName(null));
 		assertEquals(ProgramState.UPDATE_CODE_TAG_NAME_SUCCESS, buildVersionService.updateCodeTagName("2014_1223_1506"));
 
 		SqlLogDetailEntity sqlLogDetailEntity = new SqlLogDetailEntity();
@@ -48,7 +48,7 @@ public class BuildVersionServiceImplTest {
 			sqlLogDetailEntity.setRevisionNumber(new Integer(i));
 			assertEquals(Boolean.TRUE, sqlLogDetailRepository.insert(sqlLogDetailEntity));
 		}
-		assertEquals(ProgramState.BUILD_ID_EQUALS_NULL, buildVersionService.updateSqlTagName(null));
+		assertEquals(ProgramState.BUILD_ID_IS_NULL, buildVersionService.updateSqlTagName(null));
 		assertEquals(ProgramState.UPDATE_SQL_TAG_NAME_SUCCESS, buildVersionService.updateSqlTagName("2014_1223_1506"));
 
 		assertEquals(ProgramState.CODE_NO_NEW_VERSION, buildVersionService.updateCodeTagName("2014_1223_1506"));

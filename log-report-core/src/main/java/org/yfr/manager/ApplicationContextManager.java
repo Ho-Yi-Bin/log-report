@@ -10,7 +10,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  * holding this object with singleton pattern .<br>
  * the other object can via the getBean method to get bean in application context .
  * 
- * <p>setup time <b>Mar 19, 2015 8:11:33 PM .</b></p>
+ * <p>setup time <b>Apr 9, 2015 1:56:22 PM .</b></p>
  *
  * @author Vincent Huang
  */
