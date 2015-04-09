@@ -9,13 +9,13 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.yfr.common.enu.ActionType;
 import org.yfr.common.enu.ProgramState;
 import org.yfr.common.service.BuildVersionService;
 import org.yfr.common.service.SendMailService;
 import org.yfr.entity.CodeLogDetailEntity;
 import org.yfr.entity.SqlLogDetailEntity;
+import org.yfr.manager.ApplicationContextManager;
 import org.yfr.service.CodeExpSvnInfoService;
 import org.yfr.service.CodeGenLogReportService;
 import org.yfr.service.CodeLogDetailService;
@@ -33,8 +33,7 @@ import org.yfr.vo.BuildParam;
  */
 public class LogReportMain {
 
-	static FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("conf/applicationContext.xml");;
-
+	/** logger . */
 	static Log logger = LogFactory.getLog(LogReportMain.class);
 
 	/**
@@ -131,18 +130,18 @@ public class LogReportMain {
 	 * </ol>
 	 */
 	public static void main(String[] args) {
-		CodeLogDetailService codeLogDetailService = context.getBean(CodeLogDetailService.class);
-		CodeExpSvnInfoService codeExpSvnInfoService = context.getBean(CodeExpSvnInfoService.class);
-		CodeGenLogReportService codeGenLogReportService = context.getBean(CodeGenLogReportService.class);
+		CodeLogDetailService codeLogDetailService = ApplicationContextManager.INSTANCE.getBean("codeLogDetailService", CodeLogDetailService.class);
+		CodeExpSvnInfoService codeExpSvnInfoService = ApplicationContextManager.INSTANCE.getBean("codeExpSvnInfoService", CodeExpSvnInfoService.class);
+		CodeGenLogReportService codeGenLogReportService = ApplicationContextManager.INSTANCE.getBean("codeGenLogReportService", CodeGenLogReportService.class);
 
-		SqlLogDetailService sqlLogDetailService = context.getBean(SqlLogDetailService.class);
-		SqlExpSvnInfoService sqlExpSvnInfoService = context.getBean(SqlExpSvnInfoService.class);
-		SqlGenLogReportService sqlGenLogReportService = context.getBean(SqlGenLogReportService.class);
+		SqlLogDetailService sqlLogDetailService = ApplicationContextManager.INSTANCE.getBean("sqlLogDetailService", SqlLogDetailService.class);
+		SqlExpSvnInfoService sqlExpSvnInfoService = ApplicationContextManager.INSTANCE.getBean("sqlExpSvnInfoService", SqlExpSvnInfoService.class);
+		SqlGenLogReportService sqlGenLogReportService = ApplicationContextManager.INSTANCE.getBean("sqlGenLogReportService", SqlGenLogReportService.class);
 
-		BuildVersionService buildVesrionService = context.getBean(BuildVersionService.class);
-		SendMailService sendMailService = context.getBean(SendMailService.class);
+		BuildVersionService buildVesrionService = ApplicationContextManager.INSTANCE.getBean("buildVersionService", BuildVersionService.class);
+		SendMailService sendMailService = ApplicationContextManager.INSTANCE.getBean("sendMailService", SendMailService.class);
 
-		BuildParam buildParam = context.getBean("buildParam", BuildParam.class);
+		BuildParam buildParam = ApplicationContextManager.INSTANCE.getBean("buildParam", BuildParam.class);
 
 		for (int i = 0; i < args.length; i++) {
 			logger.debug("args[" + i + "] = " + args[i]);
