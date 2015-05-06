@@ -65,21 +65,21 @@ public interface SendMailService extends UnitTestService {
 	/**
 	 * setter of mailAddressList .
 	 *
-	 * @param mailAddressList - the mailAddressList <b>List<String></b> to set
+	 * @param mailAddressList - the mailAddressList <b>List&lt;String&gt;</b> to set
 	 */
 	void setMailAddressList(List<String> mailAddressList);
 
 	/**
 	 * setter of ccMailAddressList .
 	 *
-	 * @param ccMailAddressList - the ccMailAddressList <b>List<String></b> to set
+	 * @param ccMailAddressList - the ccMailAddressList <b>List&lt;String&gt;</b> to set
 	 */
 	void setCcMailAddressList(List<String> ccMailAddressList);
 
 	/**
 	 * setter of attachFileNameList .
 	 *
-	 * @param attachFileNameList - the attachFileNameList <b>List<String></b> to set
+	 * @param attachFileNameList - the attachFileNameList <b>List&lt;String&gt;</b> to set
 	 */
 	void setAttachFileNameList(List<String> attachFileNameList);
 

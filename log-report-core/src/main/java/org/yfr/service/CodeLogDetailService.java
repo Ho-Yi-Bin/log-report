@@ -17,21 +17,33 @@ public interface CodeLogDetailService extends UnitTestService {
 	/**
 	 * verify the information (author and log)
 	 * 
-	 * @return ProgramState 
+	 * @param authorFilePath - the author file path <b>(String)</b> to set
+	 * @param logFilePath - the log file path <b>(String)</b> to set
+	 * 
+	 * @return program state
 	 */
 	ProgramState verify(String authorFilePath, String logFilePath);
 
 	/**
 	 * combine the entity .
 	 * 
-	 * @return CodeLogDetailEntity
+	 * @param authorFilePath - the author file path <b>(String)</b> to set
+	 * @param dateFilePath - the date file path <b>(String)</b> to set
+	 * @param logFilePath - the log file path <b>(String)</b> to set
+	 * @param changedFilePath - the changed file path <b>(String)</b> to set
+	 * @param revisionNumber - the revision number <b>(String)</b> to set
+	 * 
+	 * @return code log detail entity
 	 */
 	CodeLogDetailEntity combineEntity(String authorFilePath, String dateFilePath, String logFilePath, String changedFilePath, String revisionNumber);
 
 	/**
 	 * combine the update entity .
 	 * 
-	 * @return CodeLogDetailEntity
+	 * @param logFilePath - the log file path <b>(String)</b> to set
+	 * @param revisionNumber - the revision number <b>(String)</b> to set
+	 * 
+	 * @return code log detail entity
 	 */
 	CodeLogDetailEntity combineUpdateEntity(String logFilePath, String revisionNumber);
 

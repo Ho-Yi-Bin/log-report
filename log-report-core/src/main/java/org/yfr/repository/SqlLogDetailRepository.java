@@ -40,7 +40,7 @@ public interface SqlLogDetailRepository {
 	Boolean update(SqlLogDetailEntity sqlLogDetailEntity);
 
 	/**
-	 * update TAG_NAME to buildId where revision number >= startRevisionNum and <= endRevisionNum .
+	 * update TAG_NAME to buildId where revision number &gt;= startRevisionNum and &lt;= endRevisionNum .
 	 * 
 	 * @param buildId - the build id <b>String</b> to set .
 	 * @param startRevisionNum - the start revision number lower bound <b>Integer</b> to set
@@ -51,7 +51,7 @@ public interface SqlLogDetailRepository {
 	Boolean updateTagName(String buildId, Integer startRevisionNum, Integer endRevisionNum);
 
 	/**
-	 * query entities where revision number >= startRevisionNum and revision number <= endRevisionNum .
+	 * query entities where revision number &gt;= startRevisionNum and revision number &lt;= endRevisionNum .
 	 * 
 	 * @param startRevisionNum - the start revision number lower bound <b>Integer</b> to set
 	 * @param endRevisionNum - the end revision number upper bound <b>Integer</b> to set
@@ -61,7 +61,7 @@ public interface SqlLogDetailRepository {
 	List<SqlLogDetailEntity> query(Integer startRevisionNum, Integer endRevisionNum);
 
 	/**
-	 * query entities where revision number >= startRevisionNum and revision number <= endRevisionNum and tag name is null .
+	 * query entities where revision number &gt;= startRevisionNum and revision number &lt;= endRevisionNum and tag name is null .
 	 * 
 	 * @param startRevisionNum - the start revision number lower bound <b>Integer</b> to set
 	 * @param endRevisionNum - the end revision number upper bound <b>Integer</b> to set
