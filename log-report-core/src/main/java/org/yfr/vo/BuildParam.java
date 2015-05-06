@@ -13,24 +13,24 @@ import java.util.List;
 public class BuildParam {
 
 	/** mail subject . */
-	String subject;
+	private String subject;
 
 	/** mail content . */
-	String mailContent;
+	private String mailContent;
 
 	/** mail address list . */
-	List<String> mailAddressList;
+	private List<String> mailAddressList;
 
 	/** cc address list . */
-	List<String> ccAddressList;
+	private List<String> ccAddressList;
 
 	/**
 	 * constructor of BuildParam .
 	 *
 	 * @param subject - subject <b>String</b> to set 
 	 * @param mailContent - mail content <b>String</b> to set
-	 * @param mailAddressList - mail address list <b>List</b> to set
-	 * @param ccAddressList - cc address list <b>List</b> to set
+	 * @param mailAddressList - mail address list <b>List&lt;String&gt;</b> to set
+	 * @param ccAddressList - cc address list <b>List&lt;String&gt;</b> to set
 	 */
 	public BuildParam(String subject, String mailContent, List<String> mailAddressList, List<String> ccAddressList) {
 		this.subject = subject;

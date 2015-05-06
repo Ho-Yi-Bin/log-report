@@ -13,25 +13,25 @@ import java.util.List;
 public class SqlParam {
 
 	/** permit module name list . */
-	List<String> permitModuleNameList;
+	private List<String> permitModuleNameList;
 
 	/** permit DB user . */
-	List<String> permitDbUserList;
+	private List<String> permitDbUserList;
 
 	/** log template line 1 . */
-	String logTemplateLine1;
+	private String logTemplateLine1;
 
 	/** log template line 2 . */
-	String logTemplateLine2;
+	private String logTemplateLine2;
 
 	/** commit notify mail content . */
-	String commitNotifyMailContent;
+	private String commitNotifyMailContent;
 
 	/** commit notify mail address list . */
-	List<String> commitNotifyMailAddressList;
+	private List<String> commitNotifyMailAddressList;
 
 	/** commit notify cc address list . */
-	List<String> commitNotifyCcAddressList;
+	private List<String> commitNotifyCcAddressList;
 
 	/**
 	 * constructor of SqlParam .

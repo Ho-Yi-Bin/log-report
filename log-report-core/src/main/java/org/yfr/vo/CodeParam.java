@@ -13,16 +13,16 @@ import java.util.List;
 public class CodeParam {
 
 	/** ignore author list . */
-	List<String> ignoreAuthorList;
+	private List<String> ignoreAuthorList;
 
 	/** permit module name list . */
-	List<String> permitModuleNameList;
+	private List<String> permitModuleNameList;
 
 	/** log template 1 . */
-	String logTemplate1;
+	private String logTemplate1;
 
 	/** log template 2 . */
-	String logTemplate2;
+	private String logTemplate2;
 
 	/**
 	 * constructor of CodeParam .

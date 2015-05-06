@@ -35,7 +35,7 @@ import org.yfr.vo.BuildParam;
 public class LogReportMain {
 
 	/** logger . */
-	static Log logger = LogFactory.getLog(LogReportMain.class);
+	private static Log logger = LogFactory.getLog(LogReportMain.class);
 
 	/**
 	 * main function of log-report .
