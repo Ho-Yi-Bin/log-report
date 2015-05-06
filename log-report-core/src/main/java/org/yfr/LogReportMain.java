@@ -42,14 +42,15 @@ public class LogReportMain {
 	 * 
 	 * @param args - the args <b>String[]</b> to set .<br>
 	 * <ol>
-	 *   <li>code pre-commit.bat</li>
+	 *   <li>code pre-commit.bat
 	 * 	   <ul>
 	 * 	     <li>args[0] = ActionType.CODE</li>
 	 * 	     <li>args[1] = ActionType.PRE</li>
 	 *    	 <li>args[2] = path of author.txt</li>
 	 *    	 <li>args[3] = path of log.txt</li>
 	 *     </ul>
-	 *   <li>code post-commit.bat</li>  
+	 *   </li>
+	 *   <li>code post-commit.bat
 	 *     <ul>
 	 *     	 <li>args[0] = ActionType.CODE</li>	
 	 *       <li>args[1] = ActionType.POST</li>
@@ -59,22 +60,25 @@ public class LogReportMain {
 	 *       <li>args[5] = path of changed.txt</li>
 	 *       <li>args[6] = revision number</li>
 	 *     </ul>
-	 *   <li>code post-revprop-change.bat</li>
+	 *   </li>  
+	 *   <li>code post-revprop-change.bat
 	 *     <ul>
 	 *     	 <li>args[0] = ActionType.CODE</li>
 	 *       <li>args[1] = ActionType.UPDATE</li>
 	 *       <li>args[2] = path of modify log.txt</li>
 	 *       <li>args[3] = revision number</li>
-	 *     </ul> 
-	 *   <li>code gen-report.bat</li>
+	 *     </ul>
+	 *   </li> 
+	 *   <li>code gen-report.bat
 	 *     <ul>
 	 *     	 <li>args[0] = ActionType.CODE</li>
 	 *       <li>args[1] = ActionType.GEN_REPORT</li>
 	 *       <li>args[2] = sheet name</li>
 	 *       <li>args[3] = start revision number</li>
 	 *       <li>args[4] = end revision number</li>
-	 *     </ul> 
-	 *   <li>code full-exp.bat</li>
+	 *     </ul>
+	 *   </li>
+	 *   <li>code full-exp.bat
 	 *     <ul>
 	 *     	 <li>args[0] = ActionType.CODE</li> 
 	 *       <li>args[1] = ActionType.FULL_EXP</li>
@@ -82,14 +86,16 @@ public class LogReportMain {
 	 *       <li>args[3] = end revision number</li>
 	 *       <li>args[4] = skip exp or not</li>
 	 *     </ul>
-	 *   <li>sql pre-commit.bat</li>
+	 *   </li>
+	 *   <li>sql pre-commit.bat
 	 * 	   <ul>
 	 * 	     <li>args[0] = ActionType.SQL</li>
 	 * 	     <li>args[1] = ActionType.PRE</li>
 	 *    	 <li>args[2] = path of author.txt</li>
 	 *    	 <li>args[3] = path of log.txt</li>
 	 *     </ul>
-	 *   <li>sql post-commit.bat</li>  
+	 *   </li>
+	 *   <li>sql post-commit.bat  
 	 *     <ul>
 	 *     	 <li>args[0] = ActionType.SQL</li>	
 	 *       <li>args[1] = ActionType.POST</li>
@@ -99,14 +105,16 @@ public class LogReportMain {
 	 *       <li>args[5] = path of changed.txt</li>
 	 *       <li>args[6] = revision number</li>
 	 *     </ul>
-	 *   <li>sql post-revprop-change.bat</li>
+	 *   </li>
+	 *   <li>sql post-revprop-change.bat
 	 *     <ul>
 	 *     	 <li>args[0] = ActionType.SQL</li>
 	 *       <li>args[1] = ActionType.UPDATE</li>
 	 *       <li>args[2] = path of modify log.txt</li>
 	 *       <li>args[3] = revision number</li>
 	 *     </ul>
-	 *   <li>sql gen-report.bat</li>
+	 *   </li>
+	 *   <li>sql gen-report.bat
 	 *     <ul>
 	 *     	 <li>args[0] = ActionType.SQL</li>
 	 *       <li>args[1] = ActionType.GEN_REPORT</li>
@@ -114,7 +122,8 @@ public class LogReportMain {
 	 *       <li>args[3] = start revision number</li>
 	 *       <li>args[4] = end revision number</li>
 	 *     </ul>
-	 *   <li>sql full-exp.bat</li>
+	 *   </li>
+	 *   <li>sql full-exp.bat
 	 *     <ul>
 	 *     	 <li>args[0] = ActionType.SQL</li> 
 	 *       <li>args[1] = ActionType.FULL_EXP</li>
@@ -122,12 +131,14 @@ public class LogReportMain {
 	 *       <li>args[3] = end revision number</li>
 	 *       <li>args[4] = skip exp or not</li>
 	 *     </ul>
-	 *   <li>build mode</li> 
+	 *   </li>
+	 *   <li>build mode
 	 *     <ul> 
 	 *       <li>args[0] = ActionType.BUILD</li>
 	 *       <li>args[1] = build id (yyyy-MM-dd_HH-mm-ss)</li>
 	 *       <li>args[2] = has sql or not</li>
 	 *     </ul>
+	 *   </li>
 	 * </ol>
 	 */
 	public static void main(String[] args) {
