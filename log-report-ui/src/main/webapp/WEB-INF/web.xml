@@ -3,18 +3,27 @@
 	version="2.5">
 	<display-name>log-report-ui</display-name>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>code.html</welcome-file>
 	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>codeJSP</servlet-name>
+		<jsp-file>/code.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>codeJSP</servlet-name>
+		<url-pattern>/code.html</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
-        <servlet-name>IndexJSP</servlet-name>
-        <jsp-file>/index.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>IndexJSP</servlet-name>
-        <url-pattern>/index.html</url-pattern>
-    </servlet-mapping>
-	
+		<servlet-name>sqlJSP</servlet-name>
+		<jsp-file>/sql.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sqlJSP</servlet-name>
+		<url-pattern>/sql.html</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>CodeLogDetailServlet</servlet-name>
 		<servlet-class>org.yfr.servlet.CodeLogDetailServlet</servlet-class>
