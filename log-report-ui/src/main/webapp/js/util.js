@@ -54,3 +54,64 @@ function ajaxPost(address, data, responseHandler) {
 			"application/x-www-form-urlencoded");
 	request.send(data);
 }
+
+function setAction() {
+	document.getElementById("queryCodeRecord").onclick = queryCodeRecord();
+	document.getElementById("querySqlRecord").onclick = querySqlRecord();
+}
+
+function queryCodeRecord() {
+	var codeReport = getCodeQueryCondition();
+	
+	document.getElementById("table").innerHTML = "<table><tr><td>" + codeReport.author + "</td></tr></table>";
+}
+
+function querySqlRecord() {
+	var sqlReport = getSqlQueryCondition();
+	
+	document.getElementById("table").innerHTML = "<table><tr><td>123</td></tr></table>";
+}
+
+function getCodeQueryCondition() {
+	var author = document.getElementById("author").innerHTML;
+	var date = document.getElementById("date").innerHTML;
+	var revisionNumber = document.getElementById("revisionNumber").innerHTML;
+	var generateFlag = document.getElementById("generateFlag").innerHTML;
+	var moduleName = document.getElementById("moduleName").innerHTML;
+	var tagName = document.getElementById("tagName").innerHTML;
+	
+	var codeReport = new CodeReport(author, date, revisionNumber, generateFlag, moduleName, tagName);
+	
+	return codeReport;
+}
+
+function getSqlQueryCondition() {
+	var author = document.getElementById("author").innerHTML;
+	var date = document.getElementById("date").innerHTML;
+	var revisionNumber = document.getElementById("revisionNumber").innerHTML;
+	var moduleName = document.getElementById("moduleName").innerHTML;
+	var generateFlag = document.getElementById("dbUser").innerHTML;
+	var tagName = document.getElementById("tagName").innerHTML;
+	
+	var sqlReport = new SqlReport(author, date, revisionNumber, generateFlag, moduleName, tagName);
+	
+	return sqlReport;
+}
+
+function CodeReport(author, date, revisionNumber, generateFlag, moduleName, tagName) {
+	this.author = author;
+	this.date = date;
+	this.revisionNumber = revisionNumber;
+	this.generateFlag = generateFlag;
+	this.moduleName = moduleName;
+	this.tagName = tagName;
+}
+
+function SqlReport(author, date, revisionNumber, moduleName, dbUser, tagName) {
+	this.author = author;
+	this.date = date;
+	this.revisionNumber = revisionNumber;
+	this.moduleName = moduleName;
+	this.dbUser = dbUser;
+	this.tagName = tagName;
+}
