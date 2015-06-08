@@ -7,8 +7,18 @@
 
 	<context:component-scan base-package="org.yfr" />
 
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>file:./conf/jdbc.properties</value>
+				<value>file:./conf/mail.properties</value>
+			</list>
+		</property>
+	</bean>
+
 	<bean id="dataSource" class="org.sqlite.SQLiteDataSource">
-		<property name="url" value="jdbc:sqlite:db\LogDetail.db" />
+		<property name="url" value="${jdbc.url}" />
 	</bean>
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
@@ -71,21 +81,20 @@
 		<constructor-arg index="4" value="Content" />
 		<constructor-arg index="5">
 			<list>
-				<!-- <value>Evadne_Tu@syscom.com.tw</value> -->
-				<!-- <value>ChenHsiang_Chou@syscom.com.tw</value> -->
-				<!-- <value>Oscar_Shih@syscom.com.tw</value> -->
-				<!-- <value>Wade_Wu@syscom.com.tw</value> -->
-				<!-- <value>Ben_Ho@syscom.com.tw</value> -->
-				<!-- <value>Jeff_Peng@syscom.com.tw</value> -->
-				<!-- <value>Beck_Wu@syscom.com.tw</value> -->
-				<!-- <value>Tommy_Yeh@syscom.com.tw</value> -->
-				<value>Vincent_Huang@syscom.com.tw</value>
+				<!-- <value>${mail.address.Evadne}</value> -->
+				<!-- <value>${mail.address.Mark}</value> -->
+				<!-- <value>${mail.address.Oscar}</value> -->
+				<!-- <value>${mail.address.Wade}</value> -->
+				<!-- <value>${mail.address.Ben}</value> -->
+				<!-- <value>${mail.address.Jeff}</value> -->
+				<!-- <value>${mail.address.Tommy}</value> -->
+				<value>${mail.address.Vincent}</value>
 			</list>
 		</constructor-arg>
 		<constructor-arg index="6">
 			<list>
 				<!-- <value>Jackie_Cheng@syscom.com.tw</value> -->
-				<value>Vincent_Huang@syscom.com.tw</value>
+				<value>${mail.address.Vincent}</value>
 			</list>
 		</constructor-arg>
 	</bean>
@@ -95,23 +104,22 @@
 		<constructor-arg index="1" value="Dear All :&lt;br&gt;&lt;br&gt;附件為此次換版的異動清單，請參閱&lt;br&gt;&lt;br&gt;Regrads,&lt;br&gt;syscom.v4.svn" />
 		<constructor-arg index="2">
 			<list>
-				<!-- <value>Evadne_Tu@syscom.com.tw</value> -->
-				<!-- <value>ChenHsiang_Chou@syscom.com.tw</value> -->
-				<!-- <value>Oscar_Shih@syscom.com.tw</value> -->
-				<!-- <value>Wade_Wu@syscom.com.tw</value> -->
-				<!-- <value>Ben_Ho@syscom.com.tw</value> -->
-				<!-- <value>Jeff_Peng@syscom.com.tw</value> -->
-				<!-- <value>Beck_Wu@syscom.com.tw</value> -->
-				<!-- <value>Tommy_Yeh@syscom.com.tw</value> -->
-				<value>Vincent_Huang@syscom.com.tw</value>
-				<!-- <value>James_Tsao@syscom.com.tw</value> -->
-				<!-- <value>Pao-Li_Yu@tc.syscom.com.tw</value> -->
+				<!-- <value>${mail.address.Evadne}</value> -->
+				<!-- <value>${mail.address.Mark}</value> -->
+				<!-- <value>${mail.address.Oscar}</value> -->
+				<!-- <value>${mail.address.Wade}</value> -->
+				<!-- <value>${mail.address.Ben}</value> -->
+				<!-- <value>${mail.address.Jeff}</value> -->
+				<!-- <value>${mail.address.Tommy}</value> -->
+				<value>${mail.address.Vincent}</value>
+				<!-- <value>${mail.address.James}</value> -->
+				<!-- <value>${mail.address.PaoLi}</value> -->
 			</list>
 		</constructor-arg>
 		<constructor-arg index="3">
 			<list>
-				<!-- <value>Jackie_Cheng@syscom.com.tw</value> -->
-				<value>Vincent_Huang@syscom.com.tw</value>
+				<!-- <value>${mail.address.Jackie}</value> -->
+				<value>${mail.address.Vincent}</value>
 			</list>
 		</constructor-arg>
 	</bean>
@@ -119,7 +127,7 @@
 	<bean id="sendMailService" class="org.yfr.common.service.impl.SendMailServiceImpl">
 		<property name="mailProp">
 			<props>
-				<prop key="mail.smtp.host">smtp.gmail.com</prop>
+				<prop key="mail.smtp.host">${mail.host}</prop>
 				<prop key="mail.smtp.socketFactory.port">465</prop>
 				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
 				<prop key="mail.smtp.auth">true</prop>
@@ -127,11 +135,11 @@
 			</props>
 		</property>
 
-		<property name="accountName" value="syscom.v4.svn" />
+		<property name="accountName" value="${mail.username}" />
 
-		<property name="password" value="syscom_143" />
+		<property name="password" value="${mail.password}" />
 
-		<property name="fromAddress" value="syscom.v4.svn@gmail.com" />
+		<property name="fromAddress" value="${mail.fromAddress}" />
 
 		<property name="subject" value="Test Subject " />
 
@@ -139,13 +147,13 @@
 
 		<property name="mailAddressList">
 			<list>
-				<value>Vincent_Huang@syscom.com.tw</value>
+				<value>${mail.address.Vincent}</value>
 			</list>
 		</property>
 
 		<property name="ccMailAddressList">
 			<list>
-				<value>Vincent_Huang@syscom.com.tw</value>
+				<value>${mail.address.Vincent}</value>
 			</list>
 		</property>
 
