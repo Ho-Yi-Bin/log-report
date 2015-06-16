@@ -20,7 +20,7 @@ public class CodeLogTest {
 
 	@Before
 	public void up() {
-		System.out.println("first test !!");
+		System.out.println("first Test One!!");
 	}
 	
 	@Test
