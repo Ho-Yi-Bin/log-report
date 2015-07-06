@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<service>
+	<head>
+		<FileName>config/風控中台系統測試BugFix處理記錄.xlsx;config/TK.xls</FileName>
+		<CreateExcel>config/異動清單</CreateExcel>
+	    <Sheet>1</Sheet>
+	    <Column>序號</Column>
+	    <Column>系統模組</Column>
+	    <Column>問題內容</Column>
+	   	<Column>狀態</Column>
+	</head>
+</service>
